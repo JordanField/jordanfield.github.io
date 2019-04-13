@@ -20,9 +20,75 @@ h1, h2 {
      0.5px 0.5px #f48fb1;
 }
 
-h2#money {
+h2.money {
     font-family: "Bodoni 72";
     font-size: 4em;
+}
+
+.emoji-container {
+    position: absolute;
+    font-size: 2em;
+    margin-left: 60px;
+    margin-top: 40px; 
+    display: inline;
+    animation: spin 2s linear infinite;
+    transform-origin: -60px;
+    z-index: -10;
+}
+
+.emoji-container:nth-child(1) { 
+    animation-delay: 0s;
+}
+
+.emoji-container:nth-child(2) { 
+    animation-delay:  0.33333s;
+}
+
+.emoji-container:nth-child(3) { 
+    animation-delay: 0.66666s;
+}
+
+.emoji-container:nth-child(4) { 
+    animation-delay: 1s;
+}
+
+.emoji-container:nth-child(5) { 
+    animation-delay: 1.3333s;
+}
+
+.emoji-container:nth-child(6) { 
+    animation-delay: 1.6666s;
+}
+
+
+.emoji-container:nth-child(1) > .emoji { 
+    animation-delay: 0s;
+}
+
+.emoji-container:nth-child(2) > .emoji { 
+    animation-delay:  0.33333s;
+}
+
+.emoji-container:nth-child(3) > .emoji { 
+    animation-delay: 0.66666s;
+}
+
+.emoji-container:nth-child(4) > .emoji { 
+    animation-delay: 1s;
+}
+
+.emoji-container:nth-child(5) > .emoji { 
+    animation-delay: 1.3333s;
+}
+
+.emoji-container:nth-child(6) > .emoji { 
+    animation-delay: 1.6666s;
+}
+
+
+.emoji {
+    animation: spin 2s linear infinite;
+    animation-direction: reverse;
 }
 
 #present-base {
@@ -81,7 +147,7 @@ h2#money {
     box-shadow:  0 1px 2px 0px rgba(0,0,0,0.35);
 }
 
-#money {
+.money {
     position: absolute;
     margin: 0 auto;
     text-align: center;
@@ -162,5 +228,14 @@ h2#money {
     }
     100% {
         width: 0;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
