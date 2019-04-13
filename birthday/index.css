@@ -24,8 +24,15 @@ h2#money {
     font-family: "Bodoni 72";
     font-size: 4em;
 }
- 
+
 #present-base {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+} 
+
+#present-top {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +40,6 @@ h2#money {
     height: 200px;
     background: white;
     border-radius: 2px;
-    margin: 50px auto;
     box-shadow: 0 4px 10px 2px rgba(0,0,0,0.35);
     animation: wiggle 3.5s infinite; 
     transition: all 2s;
@@ -79,11 +85,12 @@ h2#money {
     position: absolute;
     margin: 0 auto;
     text-align: center;
-    top: 240px;
-    left: 125px; 
     animation: wiggle- 3.5s infinite; 
     transform: rotate(8deg);
     animation-fill-mode: forwards;
+    z-index: -5;
+    margin-left: 45px;
+    margin-top: 55px;  
 }
 
 .open.ribbon#y1 {
@@ -96,7 +103,7 @@ h2#money {
     animation-fill-mode: forwards;
 }
 
-.open#present-base {
+.open#present-top {
     transform: scale(1.5);
     opacity: 0;
 }

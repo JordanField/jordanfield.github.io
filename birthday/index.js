@@ -4,7 +4,7 @@ $(document).ready(function () {
         $("#x").addClass("open");
         $("#y2").addClass("open");
         window.setTimeout(function () {
-            $("#present-base").addClass("open");
+            $("#present-top").addClass("open");
         },1500);
     })
 });
