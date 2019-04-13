@@ -41,7 +41,7 @@ h2#money {
     background: white;
     border-radius: 2px;
     box-shadow: 0 4px 10px 2px rgba(0,0,0,0.35);
-    animation: wiggle 3.5s infinite; 
+    animation: wiggle 2s infinite; 
     transition: all 2s;
     background: white;
 }
@@ -117,19 +117,19 @@ h2#money {
 }
 
 @keyframes wiggle {
-    3% {
+    5% {
         transform: rotate(4deg);
     }
-    6% {
-        transform: rotate(-4deg);
-    }
-    9% {
-        transform: rotate(4deg);
-    }
-    12% {
+    10% {
         transform: rotate(-4deg);
     }
     15% {
+        transform: rotate(4deg);
+    }
+    20% {
+        transform: rotate(-4deg);
+    }
+    25% {
         transform: rotate(0);
     }
 }
