@@ -1,0 +1,159 @@
+body {
+    background: #f2bcf8;
+    font-family: "Bodoni 72";
+    text-align: center;
+}
+
+#header {
+    font-size: 3em;
+    margin: 0 auto;
+    display: block;
+}
+
+h1, h2 {
+    text-shadow: 
+       3px   3px #f48fb1,
+     2.5px 2.5px #f48fb1,
+       2px   2px #f48fb1, 
+     1.5px 1.5px #f48fb1,
+       1px   1px #f48fb1,
+     0.5px 0.5px #f48fb1;
+}
+
+h2#money {
+    font-family: "Bodoni 72";
+    font-size: 4em;
+}
+ 
+#present-base {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 2px;
+    margin: 50px auto;
+    box-shadow: 0 4px 10px 2px rgba(0,0,0,0.35);
+    animation: wiggle 3.5s infinite; 
+    transition: all 2s;
+    background: white;
+}
+
+.ribbon {
+    background: red;
+}
+
+.ribbon#x {
+    position: relative;
+    bottom:;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    height: 12px;
+    box-shadow:  0 1px 2px 0px rgba(0,0,0,0.35);
+}
+
+.open.ribbon#x {
+    animation: ribbonx 1s;
+    animation-fill-mode: forwards;
+}
+
+.ribbon#y1 {
+    box-sizing: border-box;
+    width: 12px;
+    height: 50%;
+    margin: 0 auto;
+    box-shadow:  0 1px 2px 0px rgba(0,0,0,0.35);
+}
+
+.ribbon#y2 {
+    box-sizing: border-box;
+    width: 12px;
+    height: 50%;
+    margin: 0 auto;
+    box-shadow:  0 1px 2px 0px rgba(0,0,0,0.35);
+}
+
+#money {
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    top: 240px;
+    left: 125px; 
+    animation: wiggle- 3.5s infinite; 
+    transform: rotate(8deg);
+    animation-fill-mode: forwards;
+}
+
+.open.ribbon#y1 {
+    animation: ribbony 1s;
+    animation-fill-mode: forwards;
+}
+
+.open.ribbon#y2 {
+    animation: ribbony 1s;
+    animation-fill-mode: forwards;
+}
+
+.open#present-base {
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+#bow {
+    position: absolute;
+    width: 70px;
+    z-index: 10;
+    top: 40%;
+    left: 33%;
+}
+
+@keyframes wiggle {
+    3% {
+        transform: rotate(4deg);
+    }
+    6% {
+        transform: rotate(-4deg);
+    }
+    9% {
+        transform: rotate(4deg);
+    }
+    12% {
+        transform: rotate(-4deg);
+    }
+    15% {
+        transform: rotate(0);
+    }
+}
+
+@keyframes wiggle- {
+    25% {
+        transform: rotate(-8deg);
+    }
+    50% {
+        transform: rotate(8deg);
+    }
+    75% {
+        transform: rotate(-8deg);
+    }
+    100% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes ribbony {
+    50% {
+        height: 0;
+    }
+    100% { height: 0 }
+}
+
+@keyframes ribbonx {
+    55% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
