@@ -55,12 +55,12 @@ a {
 }
 
 @media screen and (max-width: 500px) {
-	#logo {
+	#zdog-logo {
 		border-right: none;
 	}
 
 	#info {
-		border-top: 3px solid black;
+		border-top: 3px solid white;
 		padding-top: 1.5em;
 		text-align: center;
 		margin-left: 0;
