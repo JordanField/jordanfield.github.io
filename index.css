@@ -57,6 +57,7 @@ a {
 @media screen and (max-width: 500px) {
 	#zdog-logo {
 		border-right: none;
+		padding: 1em;
 	}
 
 	#info {
@@ -68,6 +69,7 @@ a {
 
 	#Container {
 		flex-direction: column;
+		margin-top: 0;
 	}
 
 	h4 {

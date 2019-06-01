@@ -1,12 +1,16 @@
 let illo = new Zdog.Illustration({
   element: document.getElementById("zdog-logo"),
-  dragRotate: true,
   scale: 5,
-  rotate: {x: Zdog.TAU*0.07, y: Zdog.TAU*0.07}
+  dragRotate: true,
+  rotate: {x: Zdog.TAU*0.02, y: Zdog.TAU*0.07}
+});
+
+let logo = new Zdog.Group({
+  addTo: illo
 });
 
 let body = new Zdog.Shape({
-  addTo: illo,
+  addTo: logo,
   path: [
     {x: 0, y: 33},
     { arc: [
@@ -56,32 +60,55 @@ let body = new Zdog.Shape({
     ]},
   ],
   closed: true,
-  stroke: false,
+  stroke: 4,
   fill: true,
-  color: '#5B1419',
-  translate: {x: (-27/2), y:(-39/2)}
+  color: '#FFF',
+  translate: {x: (-27/2), y:(-39/2), z: 3.75}
 });
 
 let circle = new Zdog.Ellipse({
-  addTo: body,
+  addTo: logo,
   diameter: 5,
   stroke: 4,
+  fill:true,
   color: '#FFF',
-  translate: {x: 10, y: 6}
+  translate: {x: -3.5, y: -14, z:3.75}
 });
+
 
 Array(15).fill().map(function(_,i) {
-  body.copyGraph({
-    translate: {x: (-27/2), y:(-39/2), z:-(i)},
-    fill: false,
-    stroke: 4,
-    color: "#fff"
-  });
+  logo.copyGraph({
+    translate: {z: (-0.5)*i}
+  })
 });
 
-body.copy()
+let g = new Zdog.Group({
+  addTo: illo
+});
+
+let c = new Zdog.Ellipse({
+  addTo: g,
+  translate: {z: 1000},
+  visible: false
+});
+
+body.copyGraph({
+  addTo: g,
+  fill: true,
+  stroke: false,
+  color: "#5B1419"
+});
+
+circle.copyGraph({
+  addTo: g,
+  fill: true,
+  stroke: false,
+  color: "#5B1419"
+})
+
 
 function animate() {
+  illo.rotate.y += 0.005;
   illo.updateRenderGraph();
   requestAnimationFrame( animate );
 }
