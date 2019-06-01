@@ -2,7 +2,7 @@ let illo = new Zdog.Illustration({
   element: document.getElementById("zdog-logo"),
   scale: 5,
   dragRotate: true,
-  rotate: {x: Zdog.TAU*0.02, y: Zdog.TAU*0.07}
+  rotate: {x: Zdog.TAU*0.02, y: Zdog.TAU*(-0.2)}
 });
 
 let logo = new Zdog.Group({
