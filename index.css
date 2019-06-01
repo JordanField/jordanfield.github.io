@@ -3,14 +3,9 @@ body {
 	color: white;
 }
 
-.zdog-canvas {
-  cursor: move;
-}
-
-#zdog-logo {
+#logo {
 	display: inline-block;
 	height: 10em;
-	width: 3em;
 	padding: 2em;
 	border-right: 3px solid white;
 }
