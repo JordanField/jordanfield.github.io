@@ -1,8 +1,7 @@
 let illo = new Zdog.Illustration({
   element: document.getElementById("zdog-logo"),
   scale: 5,
-  dragRotate: true,
-  rotate: {x: Zdog.TAU*0.02, y: Zdog.TAU*(-0.2)}
+  rotate: {x: Zdog.TAU*0.1, y: Zdog.TAU*0.1}
 });
 
 let logo = new Zdog.Group({
@@ -106,7 +105,6 @@ circle.copyGraph({
   color: "#5B1419"
 })
 
-
 function mousemove(event) {
   let logo = document.getElementById('zdog-logo');
   let logoRect = logo.getBoundingClientRect();
@@ -121,31 +119,8 @@ function mousemove(event) {
     y: Math.atan(offset.x / 1000)
   };
 
-  console.log(angle);
-
   illo.rotate.x = -angle.x;
   illo.rotate.y = -angle.y;
-}
-
-function orient(event) {
-  console.log(event);
-  // let logo = document.getElementById('zdog-logo');
-  // let logoRect = logo.getBoundingClientRect();
-
-  // let offset = {
-  //   x: event.clientX - (logoRect.x + (logoRect.width / 2)),
-  //   y: event.clientY - (logoRect.y + (logoRect.height / 2))
-  // };
-
-  // let angle = {
-  //   x: Math.atan(offset.y / 1000),
-  //   y: Math.atan(offset.x / 1000)
-  // };
-
-  // console.log(angle);
-
-  // illo.rotate.x = -angle.x;
-  // illo.rotate.y = -angle.y;
 }
 
 function animate() {
@@ -153,13 +128,6 @@ function animate() {
   requestAnimationFrame( animate );
 }
 
-if (window.DeviceOrientationEvent) {
-  window.DeviceOrientationEvent.requestPermission()
-    .then((permission) => console.log(permission));
-
-  window.addEventListener('deviceorientation', orient)
-} else {
-  window.addEventListener('mousemove', mousemove)
-}
+window.addEventListener('mousemove', mousemove)
 
 animate();

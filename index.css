@@ -67,7 +67,7 @@ h3.link {
 
 #content {
 	display: flex;
-	align-items: center;
+	align-items: top;
 	justify-content: center;
 	margin-top: 50px
 }
@@ -92,6 +92,7 @@ h3.link {
 	}
 
 	#content {
+		align-items: center;
 		flex-direction: column;
 		margin-top: 0;
 	}
