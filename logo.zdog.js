@@ -107,10 +107,59 @@ circle.copyGraph({
 })
 
 
+function mousemove(event) {
+  let logo = document.getElementById('zdog-logo');
+  let logoRect = logo.getBoundingClientRect();
+
+  let offset = {
+    x: event.clientX - (logoRect.x + (logoRect.width / 2)),
+    y: event.clientY - (logoRect.y + (logoRect.height / 2))
+  };
+
+  let angle = {
+    x: Math.atan(offset.y / 1000),
+    y: Math.atan(offset.x / 1000)
+  };
+
+  console.log(angle);
+
+  illo.rotate.x = -angle.x;
+  illo.rotate.y = -angle.y;
+}
+
+function orient(event) {
+  console.log(event);
+  // let logo = document.getElementById('zdog-logo');
+  // let logoRect = logo.getBoundingClientRect();
+
+  // let offset = {
+  //   x: event.clientX - (logoRect.x + (logoRect.width / 2)),
+  //   y: event.clientY - (logoRect.y + (logoRect.height / 2))
+  // };
+
+  // let angle = {
+  //   x: Math.atan(offset.y / 1000),
+  //   y: Math.atan(offset.x / 1000)
+  // };
+
+  // console.log(angle);
+
+  // illo.rotate.x = -angle.x;
+  // illo.rotate.y = -angle.y;
+}
+
 function animate() {
-  illo.rotate.y += 0.005;
   illo.updateRenderGraph();
   requestAnimationFrame( animate );
+}
+
+if (window.DeviceOrientationEvent) {
+  window.DeviceOrientationEvent.requestPermission()
+    .then((permission) => console.log(permission));
+
+  window.addEventListener('deviceorientation', orient)
+} else {
+  window.addEventListener('mousemove', mousemove)
 }
 
 animate();
