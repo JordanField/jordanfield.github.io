@@ -2,6 +2,8 @@
 	font-family: 'Amstelvar';
 	src: url('resources/Amstelvar-Roman[wdth,wght,opsz].woff2') format('woff2 supports variations'),
 		 url('resources/Amstelvar-Roman[wdth,wght,opsz].woff2') format('woff2-variations');
+	font-weight: 100 800;
+	font-stretch: 10% 150%;
 	font-style: normal;
 }
 
