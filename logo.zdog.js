@@ -95,14 +95,14 @@ body.copyGraph({
   addTo: g,
   fill: true,
   stroke: false,
-  color: "#5B1419"
+  color: "#182715"
 });
 
 circle.copyGraph({
   addTo: g,
   fill: true,
   stroke: false,
-  color: "#5B1419"
+  color: "#182715"
 })
 
 function mousemove(event) {
