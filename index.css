@@ -49,6 +49,10 @@ body {
 	gap: var(--size-xs);
 }
 
+.spacer {
+	flex-grow: 1;
+}
+
 #timeline {
 	display: flex;
 	flex-direction: column;
@@ -96,6 +100,10 @@ a {
 
 	text-decoration: none;
 	transition: all 0.2s;
+}
+
+a.active {
+	border: 1px solid var(--text)
 }
 
 a:hover {
