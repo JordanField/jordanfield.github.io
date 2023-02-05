@@ -1,141 +1,134 @@
 @font-face {
-	font-family: 'Amstelvar';
-	src: url('resources/Amstelvar-Roman[wdth,wght,opsz].woff2') format('woff2 supports variations'),
-		 url('resources/Amstelvar-Roman[wdth,wght,opsz].woff2') format('woff2-variations');
+	font-family: 'RobotoFlex';
+	src: url('resources/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].woff') format('woff2 supports variations'),
+		 url('resources/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].woff') format('woff2-variations');
 	font-weight: 100 800;
 	font-stretch: 10% 150%;
 	font-style: normal;
 }
 
+:root {
+	--button: hsl(114, 20%, 70%);
+	--text: hsl(114, 20%, 20%);
+	--background-level-0: hsl(114, 10%, 90%);
+	--background-level-1: hsl(114, 20%, 80%);
+
+	--size-xxxs: 2px;
+	--size-xxs: 4px;
+	--size-xs: 8px;
+	--size-s: 16px;
+	--size-m: 24px;
+	--size-l: 36px;
+	--size-xl: 48px;
+	--size-xxl: 64px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--button: hsl(114, 10%, 30%);
+		--text: hsl(114, 20%, 87.5%);
+		--background-level-0: hsl(114, 10%, 10%);
+		--background-level-1: hsl(114, 10%, 17.5%);
+	}
+}
+
+/* Horrible hacks since chromium system-ui font isn't variable */
+html[data-useragent*="Chrome"] body {
+	font-family: 'RobotoFlex', system-ui, sans-serif;
+}
+
 body {
-	font-family: "Amstelvar", "Avenir Next", system-ui, sans-serif;
-	background-color: #f8f8f8;
-	color: #202020;
+	font-family: system-ui, 'RobotoFlex', sans-serif;
+	background-color: var(--background-level-0);
+	color: var(--text);
+}
+
+#preamble {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-xs);
+}
+
+#timeline {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-s);
+}
+
+.datum { 
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-xs);
 }
 
 h1 {
-	font-size: 3em;
-	font-weight: 800;
-	font-stretch: 110%;
+	font-size: var(--size-xl);
 	margin: 0;
+	font-weight: 800;
+	font-stretch: 125%;
 }
 
 h2 {
-	margin: 0 0 4px 0;
+	margin: 0;
 	font-weight: 650;
-	font-stretch: 90%;
 }
 
 h3 {
 	margin: 0;
 	font-weight: 500;
-	font-style: italic;
+}
+
+.links {
+	display: flex;
+	align-items: baseline;
+	gap: var(--size-xs);
 }
 
 a {
-	font-weight: 500;
-	color: #202020;
-}
-
-h3.link {
-	font-style: normal;
-}
-
-.datum {
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.timeline-point {
-	width: 12px;
-	height: 12px;
-	margin: -6px;
 	position: relative;
-	background: #202020;
-	border-radius: 100%;
-	right: 33.5px;
-	top: 15px;
+	padding: var(--size-xxs);
+	left: calc(var(--size-xxs) * -1);
+
+	color: var(--text);
+	font-weight: 500;
+	border-radius: var(--size-xxs);
+	background-color: var(--button);
+
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+a:hover {
+	font-stretch: 130%;
+	font-weight: 700;
+}
+
+.section {
+	flex-grow: 1;
+	padding: var(--size-m);
+	border-radius: 24px;
+	background-color: var(--background-level-1);
 }
 
 #logo-container {
-	display: inline-block;
-	padding: 1em 2em;
+	padding-top: 10px;
+	flex-basis: 100px;
 }
 
 #logo-path {
-	fill: #202020;
+	fill: var(--text);
 }
 
 #info {
-	padding-left: 2em;
-	border-left: 3px solid;
-	border-color: #202020;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 }
 
 #content {
 	display: flex;
-	align-items: top;
+	flex-wrap: wrap;
 	justify-content: center;
-	margin-top: 50px
-}
-
-#info > p {
-	margin: 1em 0 2em 0;
-}	
-
-@media (prefers-color-scheme: dark) {
-	body {
-		background-color: #202020;
-		color: #f8f8f8;
-	}
-
-	a {
-		color: #f8f8f8;
-	}
-
-	.timeline-point {
-		background: #f8f8f8;
-	}
-
-	#logo-path {
-		fill: #f8f8f8;
-	}
-
-	#info {
-		border-color: #f8f8f8;
-	}
-}
-
-@media screen and (max-width: 700px) {
-	#logo {
-		padding: 1em;
-	}
-
-	#info {
-		border-left: none; 
-		border-top: 3px solid;
-		padding-top: 1.5em;
-		padding-left: 1.5em;
-		padding-right: 1.5em;
-		margin-left: 0;
-		max-width: 400px;
-	}
-
-	#content {
-		align-items: center;
-		flex-direction: column;
-		margin-top: 0;
-	}
-
-	.datum > h4 {
-		margin: 0;
-	}
-
-	h1 {
-		font-stretch: 110%;
-	}
-
-	.timeline-point {
-		display: none;
-	}
+	gap: 36px;
+	margin-top: var(--size-l);
 }
